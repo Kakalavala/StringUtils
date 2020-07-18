@@ -107,3 +107,27 @@ String.prototype.removeEnd = function(int) {
 
 	return this.substring(0, this.length - int);
 };
+
+/**
+ * "example".space(); returns "e x a m p l e"
+ * "foo bar".space(); returns "f o o  b a r"
+ * @return {String}
+*/
+String.prototype.space = function() {
+	let w = this.split(' ');
+
+	if (w.length > 1) {
+		let s = "";
+		let _x = -1;
+
+		for (x in w) {
+			if (x != _x)
+				s += '  ';
+
+			s += w[x].split('').join(' ');
+			_x = x;
+		}
+
+		return s.trim();
+	} else return this.split('').join(' ');
+};
